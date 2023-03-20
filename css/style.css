@@ -1,0 +1,113 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* HEADER */
+
+header {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    /* BOOTSTARP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MAIN */
+
+.container {
+    color: white;
+    width: 800px;
+    /* height: 100vh; */
+    margin: 0 auto;
+    /* BOOTSTRAP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    padding: 30px 0 30px 0;
+}
+
+.choice {
+    padding: 30px 0 30px 0;
+}
+
+.choice label,
+select {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+}
+
+.play-btn {
+    font-size: 1.4rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-left: 30px;
+}
+
+.grid {
+    padding-bottom: 30px;
+    /* BOOTSTRAP */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    font-size: 2rem;
+    border: 2px solid white;
+    /* BOOTSTRAP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.easy {
+    width: calc(800px / 10);
+    height: calc(800px / 10);
+}
+
+.medium {
+    width: calc(800px / 9);
+    height: calc(800px / 9);
+}
+
+.hard {
+    width: calc(800px / 7);
+    height: calc(800px / 7);
+}
+
+.blue {
+    background-color: skyblue;
+}
+
+/* FOOTER */
+
+footer {
+    height: 50px;
+    background-color: white;
+    /* BOOTSTARP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h2 {
+    color: black;
+    font-size: 1.3rem;
+}
