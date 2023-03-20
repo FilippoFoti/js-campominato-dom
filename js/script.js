@@ -35,20 +35,33 @@ playBtn.addEventListener("click", function() {
         function generateGridItem(text) {
             const newSquare = document.createElement("div");
             newSquare.classList.add("grid-item");
-            newSquare.classList.add("easy")
+            newSquare.classList.add("easy");
             newSquare.innerHTML = `<span>${text}</span>`;
             return newSquare;
         }
 
         // La casella si colora al click
+        let score = 0;
+        const scoreArray = [];
+        const maxScore = (boxEasy - 16)
+        console.log(maxScore);
+
         function colorClick() {
-        const clickedNumber = parseInt(this.querySelector("span").textContent);
-        this.classList.add("blue");
-        if (bombs.includes(clickedNumber)) {
-            this.classList.add("red")
-            console.log("Hai preso la bomba!")
+            const clickedNumber = parseInt(this.querySelector("span").textContent);
+            if (!bombs.includes(clickedNumber)) {
+                this.classList.add("blue");
+                this.removeEventListener("click", colorClick);
+                scoreArray.push();
+                score++;
+                if (score === maxScore)
+                alert("hai vinto");
+            } else {
+                this.classList.add("red");
+                alert("hai perso, il tuo punteggio è " + score);
+                this.removeEventListener("click", colorClick);
+                
             }
-        console.log(clickedNumber);
+            console.log(clickedNumber);
         }
 
     } else if (userChoiceInput === "medium") {
@@ -80,14 +93,27 @@ playBtn.addEventListener("click", function() {
         }
 
         // La casella si colora al click
+        let score = 0;
+        const scoreArray = [];
+        const maxScore = (boxMedium - 16)
+        console.log(maxScore);
+
         function colorClick() {
-        const clickedNumber = parseInt(this.querySelector("span").textContent);
-        this.classList.add("blue");
-        if (bombs.includes(clickedNumber)) {
-            this.classList.add("red")
-            console.log("Hai preso la bomba!")
-            }
-        console.log(clickedNumber);
+            const clickedNumber = parseInt(this.querySelector("span").textContent);
+            if (!bombs.includes(clickedNumber)) {
+                this.classList.add("blue");
+                this.removeEventListener("click", colorClick);
+                scoreArray.push();
+                score++;
+                document.getElementById("main-score").innerHTML = score;
+                if (score === maxScore)
+                alert("hai vinto");
+            } else {
+                this.classList.add("red");
+                alert("hai perso, il tuo punteggio è " + score);
+                this.removeEventListener("click", colorClick);
+            } 
+            console.log(clickedNumber);
         }
 
     } else if (userChoiceInput === "hard") {
@@ -103,7 +129,7 @@ playBtn.addEventListener("click", function() {
             gridBox.innerHTML = '';
             for (i = 1; i <= 49; i++){
                 const grid = generateGridItem(i);
-                grid.addEventListener("click", colorClick)
+                grid.addEventListener("click", colorClick);
                 gridBox.append(grid);
             }
         }
@@ -118,15 +144,28 @@ playBtn.addEventListener("click", function() {
         }
 
         // La casella si colora al click
+        let score = 0;
+        const scoreArray = [];
+        const maxScore = (boxHard - 16)
+        console.log(maxScore);
+
         function colorClick() {
-        const clickedNumber = parseInt(this.querySelector("span").textContent);
-        this.classList.add("blue");
-        if (bombs.includes(clickedNumber)) {
-            this.classList.add("red")
-            console.log("Hai preso la bomba!")
+            const clickedNumber = parseInt(this.querySelector("span").textContent);
+            if (!bombs.includes(clickedNumber)) {
+                this.classList.add("blue");
+                this.removeEventListener("click", colorClick);
+                scoreArray.push();
+                score++;
+                if (score === maxScore)
+                alert("hai vinto");
+            } else {
+                this.classList.add("red");
+                alert("hai perso, il tuo punteggio è " + score);
+                this.removeEventListener("click", colorClick);
             }
-        console.log(clickedNumber);
+            console.log(clickedNumber);
         }
+
     }
 
     // Ripulisco i campi di input
@@ -144,7 +183,7 @@ function generateBombs(maxNumber, numbersQuantity) {
             numbers.push(rndNumber)
         }
     }
-    return numbers
+    return numbers;
 }
 
 
