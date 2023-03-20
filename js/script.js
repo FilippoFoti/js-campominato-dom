@@ -14,13 +14,17 @@ playBtn.addEventListener("click", function() {
     console.log(userChoice)
 
     if (userChoiceInput === "easy") {
-        // Creo la griglia al click del tasto Play
-        // playBtn.addEventListener('click', gridEasy);
+        // NUMERO DELLE BOMBE
+        const bombNumber = 16;
+   
+        // GENERO LE BOMBE
+        const bombs = generateBombs(boxEasy, bombNumber);
+        console.log(bombs);
 
         // Genero la griglia e caselle (100)
         function gridEasy() {
             gridBox.innerHTML = '';
-            for (i = 1; i <= 100; i++){
+            for (i = 1; i <= 100; i++) {
                 const grid = generateGridItem(i);
                 grid.addEventListener("click", colorClick)
                 gridBox.append(grid);
@@ -35,9 +39,25 @@ playBtn.addEventListener("click", function() {
             newSquare.innerHTML = `<span>${text}</span>`;
             return newSquare;
         }
+
+        // La casella si colora al click
+        function colorClick() {
+        const clickedNumber = parseInt(this.querySelector("span").textContent);
+        this.classList.add("blue");
+        if (bombs.includes(clickedNumber)) {
+            this.classList.add("red")
+            console.log("Hai preso la bomba!")
+            }
+        console.log(clickedNumber);
+        }
+
     } else if (userChoiceInput === "medium") {
-        // Creo la griglia al click del tasto Play
-        // playBtn.addEventListener('click', gridMedium);
+        // NUMERO DELLE BOMBE
+        const bombNumber = 16;
+   
+        // GENERO LE BOMBE
+        const bombs = generateBombs(boxMedium, bombNumber);
+        console.log(bombs);
 
         // Genero la griglia e caselle (100)
         function gridMedium() {
@@ -58,9 +78,25 @@ playBtn.addEventListener("click", function() {
             newSquare.innerHTML = `<span>${text}</span>`;
             return newSquare;
         }
+
+        // La casella si colora al click
+        function colorClick() {
+        const clickedNumber = parseInt(this.querySelector("span").textContent);
+        this.classList.add("blue");
+        if (bombs.includes(clickedNumber)) {
+            this.classList.add("red")
+            console.log("Hai preso la bomba!")
+            }
+        console.log(clickedNumber);
+        }
+
     } else if (userChoiceInput === "hard") {
-         // Creo la griglia al click del tasto Play
-        //  playBtn.addEventListener('click', gridHard);
+        // NUMERO DELLE BOMBE
+        const bombNumber = 16;
+   
+        // GENERO LE BOMBE
+        const bombs = generateBombs(boxHard, bombNumber);
+        console.log(bombs);
 
         // Genero la griglia e caselle (100)
         function gridHard() {
@@ -80,15 +116,38 @@ playBtn.addEventListener("click", function() {
             newSquare.innerHTML = `<span>${text}</span>`;
             return newSquare;
         }
+
+        // La casella si colora al click
+        function colorClick() {
+        const clickedNumber = parseInt(this.querySelector("span").textContent);
+        this.classList.add("blue");
+        if (bombs.includes(clickedNumber)) {
+            this.classList.add("red")
+            console.log("Hai preso la bomba!")
+            }
+        console.log(clickedNumber);
+        }
     }
 
     // Ripulisco i campi di input
     userChoice.value = "";
 });
 
-// La casella si colora al click
-function colorClick() {
-    const clickedNumber = parseInt(this.querySelector("span").textContent);
-    this.classList.toggle("blue");
-    console.log(clickedNumber);
+// BOMBE //////////////////////////////////////////
+
+// GENERO LE BOMBE
+function generateBombs(maxNumber, numbersQuantity) {
+    const numbers = [];
+    while (numbers.length < numbersQuantity) {
+        const rndNumber = getRndNumber(1, maxNumber)
+        if (!numbers.includes(rndNumber)) {
+            numbers.push(rndNumber)
+        }
+    }
+    return numbers
+}
+
+
+function getRndNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }

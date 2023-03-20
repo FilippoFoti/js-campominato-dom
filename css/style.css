@@ -44,7 +44,7 @@ h1 {
 }
 
 .choice {
-    padding: 30px 0 30px 0;
+    padding: 30px 0 20px 0;
 }
 
 .choice label,
@@ -59,6 +59,27 @@ select {
     border-radius: 10px;
     padding: 5px 10px;
     margin-left: 30px;
+}
+
+.score {
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    /* BOOTSTRAP */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    padding-right: 30px;
+}
+
+p {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5px 15px;
 }
 
 .grid {
@@ -94,6 +115,10 @@ select {
 
 .blue {
     background-color: skyblue;
+}
+
+.red {
+    background-color: red;
 }
 
 /* FOOTER */
